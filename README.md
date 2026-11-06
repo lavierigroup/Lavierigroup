@@ -1,25 +1,25 @@
-# Lavieri Group — first version
+# Lavieri Group — Next.js website
 
-A responsive Next.js App Router website, prepared for Vercel. Includes a homepage, service sections, email and phone inquiry links, canonical URL, social metadata, Organization JSON-LD, robots.txt, and sitemap.xml. No environment variables required.
+Rebuild of the existing Wix navigation and content structure for Vercel.
 
-## Deploy on Vercel
+## Pages
 
-1. Import `lavierigroup/Lavierigroup` as a new Vercel project.
-2. Select **Next.js** and leave the root directory at the repository root.
-3. Use the default build command `npm run build` and output settings.
-4. Deploy. Add `www.lavierigroup.com` and `lavierigroup.com` in Vercel Domains when ready to switch the live site. Follow Vercel's DNS instructions; preserve email DNS records.
+Home, Book Online, Shop (with working category and price controls), four service detail pages, three service listings, Portfolio with two photo collections and keyboard-accessible photo viewer, Insights with two adapted articles, Notifications, and five information pages. Existing public URLs are retained. The memorabilia gallery includes Luca’s SEGA F355 Challenge 2 photograph.
 
-Vercel previews should remain protected or non-indexable. Canonicals deliberately point to the final production domain. Domain migration is not performed by this code.
+## Run and deploy
 
-## Local development
+Node.js 20.9 or later. Run `npm ci`, `npm run dev`, and `npm run build`. Import this repository into Vercel with the Next.js preset. No environment variables required.
 
-Node.js 20.9+ (Node.js 22 LTS recommended).
+## Contact and transaction behavior
 
-```sh
-npm install
-npm run dev
-```
+Appointment and service forms validate required fields, then prepare a draft in the visitor’s email app. The visitor must send it. There is no backend email delivery, calendar integration, online checkout, customer login, or member notifications system. Service prices are carried over from the public Wix listings; scope, availability, and final price are confirmed directly. Footer updates link prepares an email request, not an automatic newsletter subscription. WhatsApp points to the business number published on the old site. No fake success messages, inventory claims, reviews, or checkout are included.
 
-## First version scope
+## SEO and content
 
-Contact buttons open the visitor's email app; there is no server-side lead form or payment system. The displayed contact information comes from the existing public website and should be confirmed before launch. This first version does not migrate Wix booking, shop, policies, or old URLs. Full migration should include service pages, verified portfolio images, relevant URL redirects, policy review, and Search Console setup before replacing the Wix site. SEO foundations support crawling and understanding; rankings and AI citations are not guaranteed.
+Pages render at build time with route-specific titles, descriptions, canonical links, social metadata, breadcrumbs, Organization / Service / Article structured data and visible service FAQs. Sitemap and robots files are generated. Public llms.txt gives a concise source map; it does not guarantee AI citations. Utility and policy pages are noindexed except the accessibility statement.
+
+60 optimized images were migrated from the existing Wix site. `lib/assets.json` records their source URLs and dimensions. Assets are served locally, so they do not depend on Wix hosting. Existing long-form Insights posts are adapted to concise summaries with the same article URLs. Original Wix social links pointed to Wix’s accounts and were omitted. Wix policy pages contained unfilled templates, so they were replaced with concise information matching the actual inquiry-only site behavior. The owner should confirm contact information, prices, and business policies before the domain switch.
+
+## Domain migration
+
+The code does not change DNS. Keep Wix active until this deployment is checked. Add both www.lavierigroup.com and lavierigroup.com in Vercel, follow its current DNS values, and preserve all mail MX/TXT records. Canonicals target https://www.lavierigroup.com. Existing principal navigation, services, products, posts, portfolio collection, and policy URLs are retained. Shop, services, and the old cart path have explicit redirects. Old Wix checkout, accounts, private booking data, and customer notifications are not migrated.

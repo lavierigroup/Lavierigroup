@@ -1,14 +1,4 @@
 import './globals.css';
-const url = 'https://www.lavierigroup.com';
-export const metadata = {
-  metadataBase: new URL(url),
-  title: 'Lavieri Group | Car Brokerage & Motorsport Memorabilia',
-  description: 'Miami-based car brokerage, international vehicle sourcing and import-export coordination, motorsport memorabilia, and private chauffeur services.',
-  alternates: { canonical: '/' },
-  openGraph: { title: 'Lavieri Group | Driven by passion. Connected worldwide.', description: 'Car brokerage, international sourcing and motorsport memorabilia. A personal connection to the extraordinary.', url, siteName: 'Lavieri Group', locale: 'en_US', type: 'website' },
-  twitter: { card: 'summary', title: 'Lavieri Group', description: 'Car brokerage, international sourcing and motorsport memorabilia.' },
-  robots: { index: true, follow: true }
-};
-export default function RootLayout({ children }) {
-  return <html lang="en"><body>{children}</body></html>;
-}
+import Header from '../components/Header';import Footer from '../components/Footer';import {site,JsonLd} from '../lib/site';
+export const metadata={metadataBase:new URL(site.url),title:{default:'Lavieri Group | Sports Cars, Limousine & Memorabilia',template:'%s | Lavieri Group'},description:'Miami-based Lavieri Group: car brokerage, international vehicle sourcing, private chauffeur services, LLC formation support, and automotive memorabilia.',openGraph:{siteName:site.name,type:'website',locale:'en_US',images:['/images/logo.webp']},twitter:{card:'summary_large_image',images:['/images/logo.webp']},robots:{index:true,follow:true}};
+export default function RootLayout({children}){return <html lang="en"><body><a className="skip" href="#main">Skip to content</a><Header/><JsonLd data={{'@context':'https://schema.org','@type':'Organization','@id':site.url+'/#organization',name:site.name,url:site.url,logo:site.url+'/images/logo.webp',email:site.email,telephone:site.phoneHref,address:{'@type':'PostalAddress',addressLocality:'Miami',addressRegion:'FL',addressCountry:'US'},founder:{'@type':'Person',name:'Luca Lavieri'}}}/><main id="main" tabIndex={-1}>{children}</main><Footer/></body></html>}
